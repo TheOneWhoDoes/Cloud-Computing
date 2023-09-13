@@ -1,0 +1,12 @@
+apiVersion: v1
+data:
+  env: |
+    URL=http://api.weatherstack.com/current?access_key=7ddd4379bceadc59b3757e128ae61d18&query=Tehran
+    PORT=8080
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2022-04-23T14:38:45Z"
+  name: server-conf
+  namespace: default
+  resourceVersion: "2340"
+  uid: 18baae39-13ab-4ee1-b932-4d17da33dca4

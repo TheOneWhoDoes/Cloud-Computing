@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: "2022-04-23T14:39:37Z"
+  generation: 1
+  labels:
+    app: server-deploy
+  name: server-deploy
+  namespace: default
+  resourceVersion: "2378"
+  uid: 7cc9f14f-3e98-4c59-b26e-1e9ad1e3261c
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 2
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: server-deploy
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: server-deploy
+    spec:
+      containers:
+      - image: soak47/khoshbin:latest
+        imagePullPolicy: Always
+        name: khoshbin
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status: {}

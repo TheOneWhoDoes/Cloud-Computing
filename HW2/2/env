@@ -1,0 +1,2 @@
+URL=http://api.weatherstack.com/current?access_key=7ddd4379bceadc59b3757e128ae61d18&query=Tehran
+PORT=8080
